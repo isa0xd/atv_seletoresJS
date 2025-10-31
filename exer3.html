@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="titulo">Título</h1>
+
+    <label for="corH1">Selecione a cor do titulo: </label>
+    <input type="color" name="corH1" id="corH1">
+    <br><br>
+    <label for="textoTitulo">Texto novo:</label>
+    <input type="text" id="textoTitulo">
+
+    <br>
+
+    <button onclick="atualizarTexto()">atualizar</button>
+
+    <script>
+
+        function atualizarTexto() {
+            let textoAtual = document.getElementById('titulo').innerText;
+
+            const corNova = document.getElementById("corH1").value;
+            const textoNovo = document.getElementById("textoTitulo").value;
+            const tamanhoTexto = (Math.random() * (100 - 30) + 30) + 'px';
+
+
+            if (textoAtual !== textoNovo && textoNovo !== "") {
+                document.getElementById("titulo").innerText = textoNovo;
+                document.getElementById("titulo").style.color = corNova;
+                document.getElementById("titulo").style.fontSize = tamanhoTexto
+
+            }
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

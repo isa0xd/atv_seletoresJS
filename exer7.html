@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Falls</title>
+</head>
+
+<body>
+    <h1>Acaricie o wapples</h1>
+
+    <p id="reacao"></p>
+
+    <img id="imgWapples" src="/img/wapples.png" alt="porco">
+
+    <script>
+        const imgWapples = document.getElementById("imgWapples");
+
+        imgWapples.addEventListener("mouseenter", () => {
+            document.getElementById("reacao").innerText = "Oinc oinc!!";
+        })
+        imgWapples.addEventListener("mouseleave", () => {
+            document.getElementById("reacao").innerText = "Faça carinho!";
+        })
+        imgWapples.addEventListener("mousemove", () => {
+            document.getElementById("reacao").innerText = "Isso é legal!";
+        })
+        imgWapples.addEventListener("click", () => {
+            document.getElementById("reacao").innerText = "Isso faz cócegas";
+        })
+    </script>
+</body>
+
+</html>

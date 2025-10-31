@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 5px;
+            margin-top: 5px;
+            width: 250px;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Cadastro</h2>
+    <form id="formCadastro" action="">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome">
+        <div class="error" id="erroNome"></div>
+
+        <label for="email">E-mail:</label>
+        <input type="text" id="email" name="email">
+        <div class="error" id="erroEmail"></div>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha">
+        <div class="error" id="erroSenha"></div>
+
+        <label for="confirmarSenha">Confirmar Senha:</label>
+        <input type="password" id="confirmarSenha" name="confirmarSenha">
+        <div class="error" id="erroConfirmarSenha"></div>
+
+        <label>
+            <input type="checkbox" id="mostrarSenha"> Mostrar senha
+        </label>
+
+        <br><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+
+
+        const form = document.getElementById("formCadastro");
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d)[A-Za-z\d!@#$%^&*]{8,}$/;
+
+        form.addEventListener("submit", () => {
+
+            event.preventDefault(); 
+
+
+            document.getElementById("erroNome").textContent = "";
+            document.getElementById("erroEmail").textContent = "";
+            document.getElementById("erroSenha").textContent = "";
+            document.getElementById("erroConfirmarSenha").textContent = "";
+
+            const nome = document.getElementById("nome").value
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+            const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+            let valido = true;
+
+            if (nome.length < 3) {
+                document.getElementById("erroNome").textContent = "O nome deve ter pelo menos 3 caracteres.";
+                valido = false;
+            }
+
+
+            if (!emailRegex.test(email)) {
+                document.getElementById("erroEmail").textContent = "E-mail inválido.";
+                valido = false;
+            }
+
+
+            if (!senhaRegex.test(senha)) {
+                document.getElementById("erroSenha").textContent = "Senha inválida. Deve ter pelo menos 8 caracteres, uma letra maiúscula, um número e um caractere especial.";
+                valido = false;
+            }
+
+
+            if (senha !== confirmarSenha) {
+                document.getElementById("erroConfirmarSenha").textContent = "As senhas não coincidem.";
+                valido = false;
+            }
+
+            if (valido) {
+                alert("Cadastro realizado com sucesso!");
+            }
+        });
+
+
+        const mostrarSenha = document.getElementById("mostrarSenha");
+        mostrarSenha.addEventListener("change", function () {
+            const tipo = mostrarSenha.checked ? "text" : "password";
+            document.getElementById("senha").type = tipo;
+            document.getElementById("confirmarSenha").type = tipo;
+        });
+    </script>
+</body>
+
+</html>

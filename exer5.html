@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="lista">
+        <li>Item nº 1</li>
+    </ul>
+
+    <button id="btnLista">Criar item na lista</button>
+
+    <script>
+        const lista = document.getElementById("lista");
+        const btn = document.getElementById("btnLista");
+
+        btn.addEventListener('click', () => {
+
+            const qtdItens = lista.querySelectorAll('li').length;
+
+
+            const novoItem = document.createElement('li');
+            novoItem.textContent = `Item nº ${qtdItens + 1}`; 'x'
+
+
+            lista.appendChild(novoItem);
+        });
+    </script>
+</body>
+
+</html>

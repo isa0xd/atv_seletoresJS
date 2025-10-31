@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Imagem</h1>
+    <img src="https://picsum.photos/id/237/600/400" id="imagem" alt="sim">
+
+    <script>
+        const constImagens = [
+            "https://picsum.photos/id/237/600/400",
+            "https://picsum.photos/id/238/600/400",
+            "https://picsum.photos/id/239/600/400",
+            "https://picsum.photos/id/240/600/400"
+        ];
+
+        let index = 1;
+
+        function mudarImagem() {
+            document.getElementById("imagem").src = constImagens[index];
+            index++;
+            if (index >= constImagens.length) {
+                index = 0;
+            }
+            setTimeout(mudarImagem, 5000);
+        }
+
+        mudarImagem();
+    </script>
+</body>
+
+</html>

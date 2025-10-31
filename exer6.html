@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Gerador de nomes</h1>
+    <button id="gerarNome">Gerar nome</button> <br>
+
+    <textarea name="nomeGerado" id="nomeGerado" placeholder="Seu nome gerado aqui: " readonly></textarea>
+
+    <script>
+
+        const titles = ["Sr.", "Mister", "Dom", "Lord", "Lady", "Capitão", "Dama"];
+        const names = ["Arthur, o ", "Gwendolyn, a ", "Merlin, o ", "Lancelot, o ", "Morgana, a ", "Ragnar, o ", "Éowyn, a "];
+        const classes = ["Mago(a)", "Paladino(a)", "Arqueiro(a)", "Ladino(a)", "Bárbaro(a)", "Feiticeiro(a)", "Cavaleiro(a)"];
+        const locations = ["de Valfenda", "de Gondor", "de Asgard", "de Camelot", "de Nárnia", "de Babilônia", "de Atlantis"];
+
+
+        const btnNome = document.getElementById("gerarNome");
+        btnNome.addEventListener("click", () => {
+            const indexTitles = Math.floor(Math.random() * titles.length);
+            const indexNome = Math.floor(Math.random() * names.length);
+            const indexClasses = Math.floor(Math.random() * classes.length);
+            const indexLocal = Math.floor(Math.random() * locations.length);
+
+            const nomeGerado = titles[indexTitles] + " " + names[indexNome] + " " + classes[indexClasses] + " " + locations[indexLocal];
+
+            document.getElementById("nomeGerado").value = nomeGerado;
+
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorvete</title>
+</head>
+
+<body>
+
+    <button id="tema" value="claro">Ativar modo escuro</button>
+    <br><br>
+    <label for="nomeSorvete">Insira um sabor de sorvete:</label>
+    <input type="text" id="nomeSorvete">
+    <p id="resposta"></p>
+
+
+    <script>
+        let resposta = document.getElementById("resposta").innerText;
+        let saborSorvete = document.getElementById("nomeSorvete");
+        let tema = document.getElementById('tema');
+
+        let btnTema = document.getElementById("tema");
+
+        btnTema.addEventListener("click", () => {
+            if (tema.value == "claro") {
+
+                document.body.style.color = 'white'
+                document.body.style.backgroundColor = 'black';
+                tema.value = "escuro";
+
+                return null;
+            }
+            if (tema.value == "escuro") {
+
+                document.body.style.color = 'black';
+                document.body.style.backgroundColor = 'white';
+                tema.value = "claro";
+                return null;
+            }
+
+
+        });
+
+
+        saborSorvete.addEventListener("keyup", () => {
+
+            if (saborSorvete.value.length >= 3) {
+                if (saborSorvete.value == "chocolate") {
+                    document.getElementById("resposta").innerText = "Eu amo sorvete de chocolate!";
+                } else if (saborSorvete.value == "flocos") {
+                    document.getElementById("resposta").innerText = "Ahh, mas chocolate é o meu favorito...";
+                } else {
+                    document.getElementById("resposta").innerText = "Ahh, eu esperava um sabor de sorvete...";
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

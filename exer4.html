@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+
+<body>
+    <h1>Contador</h1>
+    <p id="contador">0</p>
+
+    <button id="aumentarContador">Aumentar contador</button>
+    <button id="zerarContador">Zerar contador</button>
+
+    <script>
+        let contador = document.getElementById("contador");
+        let botaoAumentar = document.getElementById("aumentarContador");
+        let botaoZerar = document.getElementById("zerarContador");
+
+        let valorContador = parseInt(contador.innerText);
+
+        botaoAumentar.addEventListener("click", aumentarContador);
+        botaoZerar.addEventListener("click", zerarContador);
+
+        function aumentarContador() {
+            valorContador++;
+            contador.innerText = valorContador;
+        }
+
+        function zerarContador() {
+            valorContador = 0;
+            contador.innerText = valorContador;
+        }
+    </script>
+</body>
+
+</html>
